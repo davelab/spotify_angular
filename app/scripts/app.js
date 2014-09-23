@@ -14,7 +14,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'utils'
+    'ui.utils'
   ])
   .config(function ($routeProvider) {
     $routeProvider
