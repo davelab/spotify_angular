@@ -6,7 +6,10 @@
 <div ng-if="albums.items">
   <h1>{{searched_artist}}'s Album List:</h1>
   <ul>
-    <li ng-repeat="album in albums.items | unique:'name'">{{album.name}}</li>
+    <li ng-repeat="album in albums.items | unique:'name'">
+      <img  ng-src="{{album.images[1].url}}" width="100">
+      {{album.name}}
+    </li>
   </ul>
 </div>
 <div ng-if="albums.total <= 0">
