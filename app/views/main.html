@@ -1,3 +1,11 @@
-<ul>
-  <li ng-repeat="album in albums | unique:'name'">{{album.name}}</li>
-</ul>
+<form>
+  <input type="text" ng-model="artist" placeholder="find artist's albums">
+  <button type="submit" ng-click="searchAlbums()">find</button>
+</form>
+
+<div ng-show="albums">
+  <h1>Artist's Album List:</h1>
+  <ul>
+    <li ng-repeat="album in albums | unique:'name'">{{album.name}}</li>
+  </ul>
+</div>
