@@ -15,9 +15,11 @@ angular.module('spotifyAngularApp')
     };
 
     $scope.searchAlbums= function () {
-      var sanitized_artist = $scope.artist.split(' ').join('+');
-      spotifyService.search(sanitized_artist, 'album', options).then(function(data) {
-          $scope.albums = data.albums.items;
+      var sanitize_artist = $scope.artist.split(' ').join('+');
+      $scope.searched_artist = $scope.artist;
+
+      spotifyService.search(sanitize_artist, 'album', options).then(function(data) {
+          $scope.albums = data.albums;
       });
     }
 
