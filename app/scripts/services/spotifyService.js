@@ -31,6 +31,13 @@ angular.module('spotifyAngularApp')
     return api('/search', 'GET', params);
   };
 
+  service.albumTracks = function(albumId, options) {
+    var params = options || {},
+        id = albumId;
+
+    return api('/albums/' + id + '/tracks', 'GET', params);
+  };
+
   return service;
 
 

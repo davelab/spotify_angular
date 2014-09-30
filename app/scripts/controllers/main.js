@@ -15,12 +15,18 @@ angular.module('spotifyAngularApp')
     };
 
     $scope.searchAlbums= function () {
-      var sanitize_artist = $scope.artist.split(' ').join('+');
-      $scope.searched_artist = $scope.artist;
+      var sanitizeArtist = $scope.artist.split(' ').join('+');
+      $scope.searchedArtist = $scope.artist;
 
-      spotifyService.search(sanitize_artist, 'album', options).then(function(data) {
+      spotifyService.search(sanitizeArtist, 'album', options).then(function(data) {
           $scope.albums = data.albums;
       });
-    }
+    };
+
+    $scope.getAlbumTracks= function (id) {
+        spotifyService.albumTracks(id).then(function(data){
+          console.log(data.items);
+        });
+    };
 
   });

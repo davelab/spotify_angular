@@ -4,14 +4,14 @@
 </form>
 
 <div ng-if="albums.items">
-  <h1>{{searched_artist}}'s Album List:</h1>
-  <ul>
-    <li ng-repeat="album in albums.items | unique:'name'">
+  <h1>{{searchedArtist}}'s Album List:</h1>
+
+    <div ng-repeat="album in albums.items | unique:'name'">
       <img  ng-src="{{album.images[1].url}}" width="100">
-      {{album.name}}
-    </li>
-  </ul>
+      <a href="" ng-click="getAlbumTracks(album.id)">{{album.name}}</a>
+    </div>
+
 </div>
 <div ng-if="albums.total <= 0">
-  <h4>no album found for {{searched_artist}}</h4>
+  <h4>No album found for {{searchedArtist}}</h4>
 </div>
