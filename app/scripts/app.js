@@ -17,18 +17,19 @@ angular
     'ui.utils',
     'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('albums', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
+      }).
+      state('albums.tracks', {
+        url: ':id/tracks',
+        templateUrl: 'views/tracks.html',
+        controller: 'TracksCtrl'
       });
   })
   .constant('API', (function() {

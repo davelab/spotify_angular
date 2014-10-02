@@ -8,8 +8,10 @@
 
     <div ng-repeat="album in albums.items | unique:'name'">
       <img  ng-src="{{album.images[1].url}}" width="100">
-      <a href="" ng-click="getAlbumTracks(album.id)">{{album.name}}</a>
+      <a ui-sref="albums.tracks({id : album.id})">{{album.name}}</a>
+
     </div>
+    <div ui-view></div>
 
 </div>
 <div ng-if="albums.total <= 0">

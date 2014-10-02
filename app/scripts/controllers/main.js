@@ -22,11 +22,4 @@ angular.module('spotifyAngularApp')
           $scope.albums = data.albums;
       });
     };
-
-    $scope.getAlbumTracks= function (id) {
-        spotifyService.albumTracks(id).then(function(data){
-          console.log(data.items);
-        });
-    };
-
   });
