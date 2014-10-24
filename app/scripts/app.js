@@ -15,7 +15,8 @@ angular
         'ngRoute',
         'ngSanitize',
         'ui.utils',
-        'ui.router'
+        'ui.router',
+        'ngLodash'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -29,8 +30,8 @@ angular
             })
             .state('albums.tracks', {
                 url: ':id/tracks',
+                controller: 'TracksCtrl',
                 templateUrl: 'views/tracks.html',
-                controller: 'TracksCtrl'
             });
 
     })

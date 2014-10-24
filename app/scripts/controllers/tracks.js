@@ -8,10 +8,11 @@
  * Controller of the spotifyAngularApp
  */
 angular.module('spotifyAngularApp')
-    .controller('TracksCtrl', function ($scope, $stateParams, spotifyService) {
-        console.log($stateParams);
+    .controller('TracksCtrl', function ($scope, $stateParams, spotifyService, lodash) {
+
+        var album = lodash.find($scope.albums.items, {id: $stateParams.id});
 
         spotifyService.albumTracks($stateParams.id).then(function(data){
-            $scope.tracks = data.items;
+            album.tracks = data.items;
         });
     });
