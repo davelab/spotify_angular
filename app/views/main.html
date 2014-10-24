@@ -1,19 +1,25 @@
 <form>
-  <input type="text" ng-model="artist" placeholder="find artist's albums">
-  <button type="submit" ng-click="searchAlbums()">find</button>
+
+    <input type="text" ng-model="artist" placeholder="find artist's albums">
+    <button type="submit" ng-click="searchAlbums()">find</button>
+
 </form>
 
 <div ng-if="albums.items">
-  <h1>{{searchedArtist}}'s Album List:</h1>
+
+    <h1>{{searchedArtist}}'s Album List:</h1>
 
     <div ng-repeat="album in albums.items | unique:'name'">
-      <img  ng-src="{{album.images[1].url}}" width="100">
-      <a ui-sref="albums.tracks({id : album.id})">{{album.name}}</a>
-
+        <img  ng-src="{{album.images[1].url}}" width="100">
+        <a ui-sref="albums.tracks({id : album.id})">{{album.name}}</a>
     </div>
+
     <div ui-view></div>
 
 </div>
+
 <div ng-if="albums.total <= 0">
-  <h4>No album found for {{searchedArtist}}</h4>
+
+    <h4>No album found for {{searchedArtist}}</h4>
+
 </div>
